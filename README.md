@@ -10,7 +10,7 @@
   - [Diagrama de clases](#diagrama-de-clases)
   - [Estructura de proyecto](#estructura-de-proyecto)
 - [Capturas de pantalla](#capturas-de-pantalla)
-- [Instrucciones para Ejecutar](#instrucciones-para-ejecutar)
+- [Instrucciones para ejecutar](#instrucciones-para-ejecutar)
 - [Desafíos Enfrentados](#desafíos-enfrentados)
 - [Contacto](#contacto)
 
@@ -49,18 +49,17 @@ Nota: Creado con Visual Paradigm Community Edition, por Diana Bello.
 
 ## Capturas de pantalla 
 **Interfaz en Eclipse** 
-![Interfaz-en-eclipse](![Interfaz-en-eclipse](https://github.com/user-attachments/assets/72cbfd05-0eea-47cf-aa3e-bc05bb80a98a)
+![Interfaz-en-eclipse](https://github.com/user-attachments/assets/72cbfd05-0eea-47cf-aa3e-bc05bb80a98a)
 
 **Ejecución de TestMain** 
 ![ejecucion-test-main-eclipse](https://github.com/user-attachments/assets/1c6723e6-3b88-405b-9af3-445bc2824eda)
 
-## Instrucciones para Ejecutar
+## Instrucciones para ejecutar
 Para ejecutar este proyecto de forma local, siga los pasos a continuación:
 1. Clonar repositorio:
    ```bash
-   git clone https://github.com/tu-usuario/ecommerce-OOP.git
+   git clone https://github.com/dianaybellom/ecommerce-OOP.git
 3. Importar en Eclipse: File → Import → Git → Projects from Git → Clone URI
-4. Ejecutar Main.java como Java Application.
 
 ## Desafíos Enfrentados
 - Asignación 2:

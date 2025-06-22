@@ -3,7 +3,7 @@ package com.arcadia.ecommerce;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-public class User {
+public abstract class User {
     private String id;
     private String email;
     private String password;

@@ -51,8 +51,29 @@ Nota: Creado con Visual Paradigm Community Edition, por Diana Bello.
 **Interfaz en Eclipse** 
 ![Interfaz-en-eclipse](https://github.com/user-attachments/assets/72cbfd05-0eea-47cf-aa3e-bc05bb80a98a)
 
-**Ejecución de TestMain** 
+**Ejecución de TestMain (Semana 2)** 
 ![ejecucion-test-main-eclipse](https://github.com/user-attachments/assets/1c6723e6-3b88-405b-9af3-445bc2824eda)
+
+**Sobrescritura de métodos** 
+- Método displayProductInfo() en Product
+![displayproductinfo-product](https://github.com/user-attachments/assets/16fb2812-4d3c-4a79-97dc-e0327f3da1a0)
+
+- Método displayProductInfo() en PhysicalProduct
+![displayproductinfo-physical](https://github.com/user-attachments/assets/1eec8406-1b77-46e7-a8e8-b17886ab5308)
+
+- Método displayProductInfo() en VirtualProduct
+![displayproductinfo-virtual](https://github.com/user-attachments/assets/f631687f-3686-40bc-b0d4-caf2218e84d8)
+
+- *Ejecución de ejemplo*
+![ejecucion-displayproductinfo](https://github.com/user-attachments/assets/609f5b0a-9fb9-433f-aa09-dc1b45cee8b1)
+
+**Sobrecarga de métodos**
+- Métodos
+![additem-cart](https://github.com/user-attachments/assets/0daf38f4-5918-4c0a-97a8-c1ab1c52eb7f)
+
+- *Ejecución de ejemplo*
+![ejecución-additem](https://github.com/user-attachments/assets/82dff18a-429d-4698-87be-de8e330573d4)
+
 
 ## Instrucciones para ejecutar
 Para ejecutar este proyecto de forma local, siga los pasos a continuación:
@@ -60,10 +81,23 @@ Para ejecutar este proyecto de forma local, siga los pasos a continuación:
    ```bash
    git clone https://github.com/dianaybellom/ecommerce-OOP.git
 3. Importar en Eclipse: File → Import → Git → Projects from Git → Clone URI
+4. Ejecutar TestMain.java como Java Application.
 
 ## Desafíos Enfrentados
-- Asignación 2:
-  - El método `removeItem()` de la clase `Cart` no eliminaba correctamente items: Se implementó con `Iterator` para evitar errores de modificación concurrente.
-
+- **Asignación 2**:
+  - Desafio: El método `removeItem()` de la clase `Cart` no eliminaba correctamente items
+  - Solución: Se implementó con `Iterator` para evitar errores de modificación concurrente.
+- **Asignación 4**:
+  - Desafio: Quise crear una sobrecarga de metodos para additem de esta forma (ver debajo)  pero, no era posible resolver productId a un objeto Product y Eclipse marcaba “product cannot be resolved to a variable”.
+   ```java
+    public boolean addItem(String productId, int quantity) { }
+    ```
+  - Solución: Opté por que se reciba directamente un Product y la cantidad, y crear internamente el CartItem.
+  ```java
+  public boolean addItem(Product product, int quantity) {
+      CartItem item = new CartItem(this.id, product, quantity);
+      return addItem(item);
+  }
+  ```
 ## Contacto
 dianabellomejia_@hotmail.com

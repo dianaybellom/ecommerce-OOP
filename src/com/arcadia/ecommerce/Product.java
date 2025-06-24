@@ -2,8 +2,7 @@ package com.arcadia.ecommerce;
 
 import java.math.BigDecimal;
 
-//TODO: Volver abstracta cuando se trabaje con Herencias y cree subclases de producto
-public class Product {
+public abstract class Product {
 	private String id;
 	private String name;
 	private String description;
@@ -83,4 +82,12 @@ public class Product {
 	public void setImageURL(String imageURL){ 
 		this.imageURL = imageURL;
 	}	
+	
+	public void displayProductInfo() {
+		System.out.println(
+				"El nombre del producto es: " + this.name + 
+				", pertenece a la categoria: " + this.category.getName() + 
+				", y su estatus es: " + (isActive() ? "ACTIVO" : "INACTIVO")
+				);
+	}
 }

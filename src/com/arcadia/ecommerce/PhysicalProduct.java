@@ -56,4 +56,14 @@ public class PhysicalProduct extends Product {
     public void setReturnable(boolean returnable) {
         this.returnable = returnable;
     }
+    
+    @Override
+    public void displayProductInfo() {
+    	super.displayProductInfo();
+    	System.out.println(
+				"Asi mismo, es un producto FISICO, " +
+				"de color: " + this.color + 
+				", y hecho con los materiales: " + this.materials
+				);
+    }
 }

@@ -46,4 +46,14 @@ public class VirtualProduct extends Product {
     public boolean isExpired() {
         return LocalDate.now().isAfter(expirationDate);
     }
+    
+    @Override
+    public void displayProductInfo() {
+    	super.displayProductInfo();
+    	System.out.println(
+				"Asi mismo, es un producto VIRTUAL, " +
+				"el código único es: " + this.code + 
+				", y expira el: " + this.expirationDate
+				);
+    }    
 }

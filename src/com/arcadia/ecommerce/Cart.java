@@ -24,7 +24,11 @@ public class Cart {
         return items.add(item);
     }
 
-
+    public boolean addItem(Product product, int quantity) {
+        CartItem item = new CartItem(this.id, product, quantity);
+        return addItem(item);
+    }
+    
     public boolean removeItem(String productId) {
     	Iterator<CartItem> it = items.iterator();
     	while (it.hasNext()) {

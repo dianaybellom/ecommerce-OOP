@@ -56,7 +56,7 @@ public class TestMain {
                 "Cerisier",
                 true
             );
-        
+        	product1.setPrice(new BigDecimal("-102.99"));
             product1.displayProductInfo();
             
             
@@ -88,7 +88,7 @@ public class TestMain {
         Cart cart = new Cart("cdf8d8d0-e046-4390-91da-1272c4d686a0", "1d58aba9-2f2a-4232-9330-c19c12c90b85");
         
         /*Productos*/
-        CartItem item1 = new CartItem(cart.getId(), product1, 2);
+        CartItem item1 = new CartItem(cart.getId(), product1, -2);
         /*CartItem item2 = new CartItem(cart.getId(), product2, 2);*/
         
         /* Agregar al carrito */

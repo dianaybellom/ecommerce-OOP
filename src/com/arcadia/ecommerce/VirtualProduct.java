@@ -22,6 +22,15 @@ public class VirtualProduct extends Product {
         BigDecimal redeemableAmount
     ) {
         super(id, name, description, price, active, category, stock, imageURL);
+        if (code == null || code.isBlank()) {
+            throw new IllegalArgumentException("Código es requerido");
+        }
+        if (expirationDate == null || expirationDate.isBefore(LocalDate.now())) {
+            throw new IllegalArgumentException("Fecha de expiración es inválida");
+        }
+        if (redeemableAmount == null || redeemableAmount.compareTo(BigDecimal.ZERO) <= 0) {
+            throw new IllegalArgumentException("El monto canjeable debe ser mayor a 0");
+        }        
         this.code = code;
         this.expirationDate = expirationDate;
         this.redeemableAmount = redeemableAmount;

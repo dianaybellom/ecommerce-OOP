@@ -26,6 +26,15 @@ public class PhysicalProduct extends Product {
         boolean returnable
     ) {
         super(id, name, description, price, active, category, stock, imageURL);
+        if (size == null || size.isBlank()) {
+            throw new IllegalArgumentException("Size es requerido");
+        }
+        if (color == null || color.isBlank()) {
+            throw new IllegalArgumentException("Color es requerido");
+        }
+        if (materials == null || materials.isEmpty()) {
+            throw new IllegalArgumentException("Materiales son requeridos");
+        }
         this.size = size;
         this.color = color;
         this.materials = materials;

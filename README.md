@@ -74,6 +74,12 @@ Nota: Creado con Visual Paradigm Community Edition, por Diana Bello.
 - *Ejecución de ejemplo*
 ![ejecución-additem](https://github.com/user-attachments/assets/82dff18a-429d-4698-87be-de8e330573d4)
 
+**Validación**
+- Método mutador setPrice() en Clase Product
+![setprice](https://github.com/user-attachments/assets/22e4daf1-dccb-4625-ac8e-144b7e35aeb2)
+
+- *Ejecución de ejemplo*
+![ejemplo_negativeprice](https://github.com/user-attachments/assets/5b73e0a2-55c7-4319-a252-3080e03e4988)
 
 ## Instrucciones para ejecutar
 Para ejecutar este proyecto de forma local, siga los pasos a continuación:

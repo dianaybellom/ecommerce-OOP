@@ -13,7 +13,15 @@ public abstract class Product {
 	private String imageURL;
 	
     public Product(String id, String name, String description, BigDecimal price, boolean active, ProductCategory category, Stock stock, String imageURL) {
-		 this.id = id;
+    	if (name == null || name.isBlank()) 
+    		throw new IllegalArgumentException("Se requiere indicar el nombre del producto");
+    	if (description == null || description.isBlank()) 
+    		throw new IllegalArgumentException("Se requiere indicar la descripción del producto");
+    	if (price == null || price.compareTo(BigDecimal.ZERO) < 0) 
+    		throw new IllegalArgumentException("El precio debe ser igual o mayor a 0");
+        if (category == null) 
+        	throw new IllegalArgumentException("Se requiere indicar la categoría del producto");
+    	 this.id = id;
 		 this.name = name;
 		 this.description = description;
 		 this.price = price;
@@ -55,15 +63,22 @@ public abstract class Product {
 		return imageURL;
 	}
 	
-	public void setName(String name){ 
+	public void setName(String name){
+		if (name == null || name.isBlank()) 
+    		throw new IllegalArgumentException("Se requiere indicar el nombre");
 		this.name = name;
 	}
 	
-	public void setDescription(String description){ 
+	public void setDescription(String description){
+		if (description == null || description.isBlank()) 
+    		throw new IllegalArgumentException("Se requiere indicar la descripción del producto");
 		this.description = description;
 	}
 	
-	public void setPrice(BigDecimal price){ 
+	public void setPrice(BigDecimal price){
+		/*Validación para precio nulo o menor a cero*/
+		if (price == null || price.compareTo(BigDecimal.ZERO) < 0)
+			throw new IllegalArgumentException("El precio debe ser igual o mayor a 0");
 		this.price = price;
 	}
 	

@@ -25,6 +25,10 @@ public class Cart {
     }
 
     public boolean addItem(Product product, int quantity) {
+    	if (product == null) 
+    		throw new IllegalArgumentException("Producto no puede ser nulo");
+        if (quantity <= 0) 
+        	throw new IllegalArgumentException("Quantity debe ser > 0");
         CartItem item = new CartItem(this.id, product, quantity);
         return addItem(item);
     }

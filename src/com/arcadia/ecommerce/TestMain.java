@@ -56,8 +56,10 @@ public class TestMain {
                 "Cerisier",
                 true
             );
-            
+        
             product1.displayProductInfo();
+            
+            
             
           /*  System.out.println(product1.getStock().isAvailable(1));*/
  
@@ -77,7 +79,7 @@ public class TestMain {
             );
             
             
-        product2.displayProductInfo();
+        /*product2.displayProductInfo();*/
             
         /*System.out.println(product2.getStock().isAvailable(1));*/
 

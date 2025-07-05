@@ -46,6 +46,11 @@ Los enums:
 - `AdminType`: tipos de perfil administrador (`BACKOFFICE`, `MANAGER`).
 - `PaymentStatus`: estados de pago (`PAID`, `FAILED`).
 
+Patrones de diseño:
+- Factory: `EntityFactory`, responsable de instanciar productos físicos o virtuales según el tipo.
+- Singleton: `SystemConfig`, clase que asegura una única instancia para almacenar la configuración global del sistema.
+- Observer: `OrderStatusNotifier`, permite registrar observadores (`OrderStatusObserver`) y notificar cambios en el estado de los pedidos.
+
 ## Arquitectura
 ### Diagrama de clases  
 ![Diagrama UML de clases](docs/Diagrama-de-clases.jpg)

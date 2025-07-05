@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import com.arcadia.ecommerce.exception.InsufficientStockException;
+
 public class Cart {
     private String id;
     private String userId;
@@ -29,6 +31,9 @@ public class Cart {
     		throw new IllegalArgumentException("Producto no puede ser nulo");
         if (quantity <= 0) 
         	throw new IllegalArgumentException("Quantity debe ser > 0");
+        if (!product.getStock().isAvailable(quantity)) {
+            throw new InsufficientStockException(product.getId(), quantity, product.getStock().getQuantity());
+        }
         CartItem item = new CartItem(this.id, product, quantity);
         return addItem(item);
     }

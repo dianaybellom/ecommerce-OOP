@@ -4,10 +4,11 @@ import java.util.List;
 
 public class AdminPanel implements InventoryManager {
     private List<Product> products;
-    //private List<Order> orders; TODO: Insertar ordenes
+    private List<Order> orders;
 
-    public AdminPanel(List<Product> products) {
+    public AdminPanel(List<Product> products, List<Order> orders) {
         this.products = products;
+        this.orders = orders != null ? orders : List.of();
     }
     
 	@Override
@@ -61,5 +62,24 @@ public class AdminPanel implements InventoryManager {
         }
 
 	}
+	
+    public Order getOrder(String orderId) {
+        for (Order order : orders) {
+            if (order.getId().equals(orderId)) {
+                return order;
+            }
+        }
+        return null;
+    }
+	
+    public void updateOrderStatus(String orderId, String newStatusStr) {
+        Order order = getOrder(orderId);
+        if (order != null) {
+            OrderStatus newStatus = OrderStatus.valueOf(newStatusStr);
+            order.setStatus(newStatus);
+            OrderStatusNotifier.notifyObservers(orderId, newStatus.name());
+        }
+    }
+
 
 }

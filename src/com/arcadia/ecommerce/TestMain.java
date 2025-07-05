@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Arrays;
+import java.util.List;
 
 public class TestMain {
 	
@@ -56,7 +57,7 @@ public class TestMain {
                 "Cerisier",
                 true
             );
-        	product1.setPrice(new BigDecimal("-102.99"));
+        	product1.setPrice(new BigDecimal("102.99"));
             product1.displayProductInfo();
             
             
@@ -82,13 +83,30 @@ public class TestMain {
         /*product2.displayProductInfo();*/
             
         /*System.out.println(product2.getStock().isAvailable(1));*/
+        
+        Product product3 = EntityFactory.createProduct(
+        		"Virtual",
+                "TRJ002", 
+                "Tarjeta de regalo 2", 
+                "Tarjeta de regalo recargable", 
+                new BigDecimal("2500.00"), 
+                true, 
+                category1, 
+                stock2, 
+                "",
+                "xy54z9",
+                LocalDate.of(2025, 12, 31),
+                new BigDecimal("2600.00")
+                );
+        
+        product3.displayProductInfo();
 
-        /* ---------------------------------Carrito--------------------------------*/
+/* ---------------------------------Carrito--------------------------------*/
         /* Creación de carrito */
         Cart cart = new Cart("cdf8d8d0-e046-4390-91da-1272c4d686a0", "1d58aba9-2f2a-4232-9330-c19c12c90b85");
         
         /*Productos*/
-        CartItem item1 = new CartItem(cart.getId(), product1, -2);
+        CartItem item1 = new CartItem(cart.getId(), product1, 2);
         /*CartItem item2 = new CartItem(cart.getId(), product2, 2);*/
         
         /* Agregar al carrito */
@@ -106,7 +124,34 @@ public class TestMain {
         System.out.println("¿Se eliminó item1? " + removed);
         
         /* Mostrar nuevo total */
-        System.out.println("Total del carrito: $" + cart.getTotal());        
+        System.out.println("Total del carrito: $" + cart.getTotal());
+        
+ /* ---------------------------------Usuario--------------------------------*/
+        User dummyUser = new User("USR001", "test@correo.com", "12345678", "8091234567", Role.CUSTOMER, "F") {};
+ 
+        
+/* ---------------------------------Orden--------------------------------*/
+        /* Crear orden desde Storefront*/
+        Storefront storefront = new Storefront();
+        Order order = storefront.createOrder(dummyUser, cart, "Av. Siempre Viva 123");
+
+        /* Registrar observer */
+        OrderStatusNotifier.subscribe(new StorefrontObserver());
+        
+        /*Obtener estado de la orden*/
+        System.out.println("Estado de la orden: " + order.getStatus());
+
+        /* Crear AdminPanel con órdenes cargadas */
+        List<Product> products = List.of(product1, product2);
+        List<Order> orders = List.of(order);
+        AdminPanel adminPanel = new AdminPanel(products, orders);
+        
+        /* Cambiar estado de orden */
+        System.out.println("Cambiando estado de la orden...");
+        adminPanel.updateOrderStatus(order.getId(), "SHIPPED");
+
+        /* Resultado esperado */
+        System.out.println("Estado final: " + order.getStatus());
 	}
 
 }

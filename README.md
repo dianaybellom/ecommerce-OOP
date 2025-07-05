@@ -34,11 +34,17 @@ Las clases que se encuentran en el paquete `com.arcadia.ecommerce`:
 - `Session`: modelo de sesión de usuario con timestamps de inicio y cierre.  
 - `CartItem`: articulos en el carrito, subtotal y cantidad.   
 - `TestMain`: ejemplos de uso de las clases para prueba.
+- `InventoryManager`: interfaz de inventario con métodos `createProduct(Product)`, `updateProduct(Product)`, `deleteProduct(String)`, `listAllProducts()`, `updateStock(String,int)`.  
+- `AdminPanel`: implementación de `InventoryManager` que delega en métodos privados `createPhysical(PhysicalProduct)` y `createVirtual(VirtualProduct)`, entre otros pendientes de implementar para la gestión administrativa. 
+- `PaymentProcessor`: interfaz para procesos de pago con métodos como `simulatePayment(BigDecimal)`.  
+- `CardPayment`: implementa `PaymentProcessor`, y siempre retorna pago exitoso.  
+- `Payment`: entidad de registro de transacción con `id`, `orderId`, `status (PaymentStatus)`, `capturedAt`.
 
 Los enums:
 - `Role`: tipos básicos de usuario (`CUSTOMER`, `ADMINISTRATOR`).  
 - `LoyaltyLevel`: niveles de lealtad de cliente (`NOVA`, `STELLAR`, `MUSE_COLLECTOR`).  
-- `AdminType`: tipos de perfil administrador (`BACKOFFICE`, `MANAGER`).  
+- `AdminType`: tipos de perfil administrador (`BACKOFFICE`, `MANAGER`).
+- `PaymentStatus`: estados de pago (`PAID`, `FAILED`).
 
 ## Arquitectura
 ### Diagrama de clases  
@@ -49,7 +55,7 @@ Nota: Creado con Visual Paradigm Community Edition, por Diana Bello.
 
 ## Capturas de pantalla 
 **Interfaz en Eclipse** 
-![Interfaz-en-eclipse](https://github.com/user-attachments/assets/72cbfd05-0eea-47cf-aa3e-bc05bb80a98a)
+![eclipse-ide](https://github.com/user-attachments/assets/9915cb61-021e-4c82-b7be-a049633b8220)
 
 **Ejecución de TestMain (Semana 2)** 
 ![ejecucion-test-main-eclipse](https://github.com/user-attachments/assets/1c6723e6-3b88-405b-9af3-445bc2824eda)

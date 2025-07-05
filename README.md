@@ -92,6 +92,10 @@ Nota: Creado con Visual Paradigm Community Edition, por Diana Bello.
 - *Ejecución de ejemplo*
 ![ejemplo_negativeprice](https://github.com/user-attachments/assets/5b73e0a2-55c7-4319-a252-3080e03e4988)
 
+**Ejecución de test case**
+![Ejecución exitosa de test case](https://github.com/user-attachments/assets/248bf4d7-7da4-461f-9d7d-0ca0f46b24d7)
+
+
 ## Instrucciones para ejecutar
 Para ejecutar este proyecto de forma local, siga los pasos a continuación:
 1. Clonar repositorio:

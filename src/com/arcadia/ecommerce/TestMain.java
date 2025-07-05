@@ -127,10 +127,21 @@ public class TestMain {
         System.out.println("Total del carrito: $" + cart.getTotal());
         
  /* ---------------------------------Usuario--------------------------------*/
-        User dummyUser = new User("USR001", "test@correo.com", "12345678", "8091234567", Role.CUSTOMER, "F") {};
+        User dummyUser = new CustomerProfile(
+        		"USR001",
+        		"test@correo.com", 
+        		"12345678", 
+        		"8091234567", 
+        		Role.CUSTOMER, 
+        		"F", 
+        		LoyaltyLevel.MUSE_COLLECTOR, 
+        		new BigDecimal("0.10"), 
+        		List.of("Summer"), 
+        		LocalDateTime.now());
  
-        
-/* ---------------------------------Orden--------------------------------*/
+        System.out.println(dummyUser.getId());
+
+        /* ---------------------------------Orden--------------------------------*/
         /* Crear orden desde Storefront*/
         Storefront storefront = new Storefront();
         Order order = storefront.createOrder(dummyUser, cart, "Av. Siempre Viva 123");
